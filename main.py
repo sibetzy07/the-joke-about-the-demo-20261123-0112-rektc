@@ -11,7 +11,9 @@ JOKE = (
 def main() -> None:
     output_dir = Path("/output")
     output_dir.mkdir(parents=True, exist_ok=True)
-    (output_dir / "entry.txt").write_text(JOKE, encoding="utf-8")
+    text = JOKE.strip()
+    with (output_dir / "entry.txt").open("w", encoding="utf-8", newline="\n") as f:
+        f.write(text)
 
 
 if __name__ == "__main__":
